@@ -2,12 +2,15 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import People from './People';
 
-test('searches darth vader', async () => {
-  jest.setTimeout(15000);
+test.only('searches darth vader', async () => {
+  jest.setTimeout(1000);
 
   render(<People />);
 
   // look for heading, search bar, and button
+  const loading = screen.getByText(/loading/i);
+  expect(loading).toBeInTheDocument();
+
   const heading = await screen.findByRole('heading', { name: /star wars people!/i });
   expect(heading).toBeInTheDocument();
 

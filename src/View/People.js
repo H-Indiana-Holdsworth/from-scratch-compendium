@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 import { getPeople } from '../services/starwars';
 import Persons from '../Component/Persons';
 import Controls from '../Component/Controls';
