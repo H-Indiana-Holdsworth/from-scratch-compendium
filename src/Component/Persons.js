@@ -1,17 +1,17 @@
 import React from 'react';
 import './Persons.css';
 
-export default function Persons({ people }) {
+export default function Persons({ person }) {
   return (
     <div>
-      {people.map((person) => (
-        <div key={person.name}>
-          <h3>{person.name}</h3>
-          <p className="person-card">
-            <span>Gender: {person.gender}</span>
-            <span>Height: {person.height}</span>
-            <span>Mass: {person.mass}</span>
-            <span>Hair Color: {person.hair_color}</span>
+      {person.map((item) => (
+        <div key={item.name}>
+          <h3>{item.name}</h3>
+          <p className="item-card">
+            <span>Gender: {item.gender}</span>
+            <span>Height: {item.height}</span>
+            <span>Mass: {item.mass}</span>
+            <span>Hair Color: {item.hair_color}</span>
           </p>
         </div>
       ))}
