@@ -1,15 +1,15 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import People from './People';
 
 test.only('searches darth vader', async () => {
-  jest.setTimeout(1000);
-
+  jest.setTimeout(30000);
   render(<People />);
 
   // look for heading, search bar, and button
-  const loading = screen.getByText(/loading/i);
-  expect(loading).toBeInTheDocument();
+  // const loading = screen.getByText(/loading/i);
+  // expect(loading).toBeInTheDocument();
+  await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
 
   const heading = await screen.findByRole('heading', { name: /star wars people!/i });
   expect(heading).toBeInTheDocument();
@@ -27,7 +27,7 @@ test.only('searches darth vader', async () => {
   expect(result).toBeInTheDocument();
 });
 
-test('renders home page', async () => {
+test.only('renders home page', async () => {
   render(<People />);
 
   const heading = await screen.findByRole('heading', { name: /star wars people!/i });
