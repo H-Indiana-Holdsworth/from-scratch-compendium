@@ -33,7 +33,7 @@ export default function People() {
     }
   }, [loading2, query]);
 
-  if (loading || loading2) return <h1>Loading...</h1>;
+  if (loading) return <h1>Loading...</h1>;
 
   return (
     <>
