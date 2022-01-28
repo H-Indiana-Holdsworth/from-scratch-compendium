@@ -4,14 +4,14 @@ import './Persons.css';
 export default function Persons({ people }) {
   return (
     <div>
-      {people.map((person) => (
-        <div key={person.name}>
-          <h3>{person.name}</h3>
-          <p className="person-card">
-            <span>Gender: {person.gender}</span>
-            <span>Height: {person.height}</span>
-            <span>Mass: {person.mass}</span>
-            <span>Hair Color: {person.hair_color}</span>
+      {people.map((item) => (
+        <div key={item.name}>
+          <h3>{item.name}</h3>
+          <p className="item-card">
+            <span>Gender: {item.gender}</span>
+            <span>Height: {item.height}</span>
+            <span>Mass: {item.mass}</span>
+            <span>Hair Color: {item.hair_color}</span>
           </p>
         </div>
       ))}
