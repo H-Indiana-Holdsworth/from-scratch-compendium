@@ -6,9 +6,7 @@ import Controls from '../Component/Controls';
 
 export default function People() {
   const [loading, setLoading] = useState(true);
-  const [loading2, setLoading2] = useState(true);
   const [people, setPeople] = useState([]);
-  const [person, setPerson] = useState([]);
   const [query, setQuery] = useState('');
 
   useEffect(() => {
@@ -17,21 +15,13 @@ export default function People() {
       setPeople(peopleList);
       setLoading(false);
     };
-    if (loading) {
-      fetchData();
-    }
-  }, [loading]);
+    fetchData();
+  }, []);
 
-  useEffect(() => {
-    const fetchPerson = async () => {
-      const searchPerson = await getPerson(query);
-      setPerson(searchPerson);
-      setLoading2(false);
-    };
-    if (loading2) {
-      fetchPerson();
-    }
-  }, [loading2, query]);
+  const handleClick = async () => {
+    const searchPerson = await getPerson(query);
+    setPeople(searchPerson);
+  };
 
   if (loading) return <h1>Loading...</h1>;
 
@@ -40,8 +30,8 @@ export default function People() {
       <div className="title">
         <h1 className="title-text">Star Wars People!</h1>
       </div>
-      <Controls query={query} setQuery={setQuery} setLoading2={setLoading2} />
-      <Persons person={person} people={people} />
+      <Controls query={query} setQuery={setQuery} handleClick={handleClick} />
+      <Persons people={people} />
     </>
   );
 }

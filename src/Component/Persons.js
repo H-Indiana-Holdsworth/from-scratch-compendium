@@ -1,10 +1,10 @@
 import React from 'react';
 import './Persons.css';
 
-export default function Persons({ person }) {
+export default function Persons({ people }) {
   return (
     <div>
-      {person.map((item) => (
+      {people.map((item) => (
         <div key={item.name}>
           <h3>{item.name}</h3>
           <p className="item-card">
