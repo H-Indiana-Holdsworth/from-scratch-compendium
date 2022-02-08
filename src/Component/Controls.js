@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Controls({ query, setQuery, setLoading }) {
+export default function Controls({ query, setQuery, handleClick }) {
   return (
     <div>
       <input
@@ -8,13 +8,13 @@ export default function Controls({ query, setQuery, setLoading }) {
         label="Filled"
         variant="filled"
         type="text"
-        placeholder="Search pokemans"
+        placeholder="Search Star Wars People"
         value={query}
         onChange={(e) => {
           setQuery(e.target.value);
         }}
       />
-      <button onClick={() => setLoading(true)}>Search</button>
+      <button onClick={handleClick}>Search</button>
     </div>
   );
 }
