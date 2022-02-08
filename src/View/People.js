@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { getPeople } from '../services/starwars';
+import { getPeople, getPerson } from '../services/starwars';
 import Persons from '../Component/Persons';
 import Controls from '../Component/Controls';
 import DarkModeToggle from '../hooks/DarkMode';
@@ -12,14 +12,17 @@ export default function People() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const peopleList = await getPeople(query);
+      const peopleList = await getPeople();
       setPeople(peopleList);
       setLoading(false);
     };
-    if (loading) {
-      fetchData();
-    }
-  }, [loading, query]);
+    fetchData();
+  }, []);
+
+  const handleClick = async () => {
+    const searchPerson = await getPerson(query);
+    setPeople(searchPerson);
+  };
 
   if (loading) return <h1>Loading...</h1>;
 
