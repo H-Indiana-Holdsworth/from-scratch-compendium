@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { getPeople } from '../services/starwars';
 import Persons from '../Component/Persons';
 import Controls from '../Component/Controls';
+import DarkModeToggle from '../hooks/DarkMode';
 
 export default function People() {
   const [loading, setLoading] = useState(true);
@@ -27,7 +28,8 @@ export default function People() {
       <div className="title">
         <h1 className="title-text">Star Wars People!</h1>
       </div>
-      <Controls query={query} setQuery={setQuery} setLoading={setLoading} />
+      <Controls query={query} setQuery={setQuery} handleClick={handleClick} />
+      <DarkModeToggle />
       <Persons people={people} />
     </>
   );
